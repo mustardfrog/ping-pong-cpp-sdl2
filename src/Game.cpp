@@ -67,7 +67,7 @@ void Game::handleEvent() {
 
 void Game::update() {
     ball->update();
-    // player->update();
+    playerA->checkCollisionWithBall(ball);
 }
 
 void Game::render() {

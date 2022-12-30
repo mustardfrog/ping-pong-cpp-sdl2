@@ -1,4 +1,5 @@
 #pragma once
+#include "Ball.hpp"
 #include "Game.hpp"
 #include "Types.hpp"
 
@@ -14,4 +15,6 @@ class Player {
         void update();
         void render(SDL_Renderer *renderer);
         void handleEvents(SDL_Event event,SDL_KeyCode a, SDL_KeyCode b);
+        void checkCollisionWithBall(Ball *ball);
+        void checkCollisionWithBorder();
 };

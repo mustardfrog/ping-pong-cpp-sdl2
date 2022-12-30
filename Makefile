@@ -1,5 +1,5 @@
 CC=g++
-SRCS=main.cpp Game.cpp Ball.cpp Player.cpp
+SRCS=src/main.cpp src/Game.cpp src/Ball.cpp src/Player.cpp
 FLAGS=-lSDL2 -lSDL2_image
 
 main: $(SRCS)
