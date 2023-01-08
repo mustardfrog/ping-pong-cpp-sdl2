@@ -43,6 +43,7 @@ void Game::init() {
         printf("renderer is null");
         isRunning = false;
     }
+
     playerA->init(32, 32, 30, 200);
     playerB->init(700, 32, 30, 200);
 
@@ -50,6 +51,7 @@ void Game::init() {
 }
 
 void Game::handleEvent() {
+
     SDL_Event event;
     SDL_PollEvent(&event);
 
@@ -60,18 +62,18 @@ void Game::handleEvent() {
     default:
         break;
     }
-    playerA->handleEvents(event, SDL_KeyCode::SDLK_k,SDL_KeyCode::SDLK_j ); 
-    playerB->handleEvents(event, SDL_KeyCode::SDLK_UP, SDL_KeyCode::SDLK_DOWN); 
-
+    playerA->handleEvents(event, SDL_KeyCode::SDLK_k, SDL_KeyCode::SDLK_j);
+    playerB->handleEvents(event, SDL_KeyCode::SDLK_UP, SDL_KeyCode::SDLK_DOWN);
 }
 
 void Game::update() {
     ball->update();
-    playerA->checkCollisionWithBall(ball);
+    playerA->checkCollisionWithBall(playerA, ball);
+    playerB->checkCollisionWithBall(playerB, ball);
 }
 
 void Game::render() {
-    SDL_SetRenderDrawColor(renderer, 0,0,0, 10);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 10);
     SDL_RenderClear(renderer);
     // render shits here
 
