@@ -9,12 +9,11 @@
 class Player {
 
     public:
-        Player();
+        Player(int x, int y, int w, int h);
         ~Player();
         SDL_Rect player;
-        Vector2 playerSpeed;
+        int playerSpeed;
 
-        void init(int x, int y , int w, int h);
         void update();
 
         void render(SDL_Renderer *renderer);

@@ -2,13 +2,12 @@
 #include <SDL2/SDL.h>
 #include "Types.hpp"
 
+enum class Winner {
+    A,
+    B
+};
+
 class Ball { 
-    private:
-        // typedef struct Vector2
-        // {
-        //     int x;
-        //     int y;
-        // } Vector2;
 
     public:
         Ball();
@@ -20,4 +19,5 @@ class Ball {
 
         void update();
         void render(SDL_Renderer* renderer);
+    private:
 };

@@ -1,14 +1,13 @@
 #include "Game.hpp"
 #include "Ball.hpp"
 #include "Player.hpp"
-#include <SDL2/SDL_keycode.h>
 #include <cstdio>
 
 Game::Game(){};
 
 Ball *ball = new Ball();
-Player *playerA = new Player();
-Player *playerB = new Player();
+Player *playerA = new Player(32, 32, 30, 200);
+Player *playerB = new Player(700, 32, 30, 200);
 
 Game::~Game(){};
 
@@ -44,9 +43,6 @@ void Game::init() {
         isRunning = false;
     }
 
-    playerA->init(32, 32, 30, 200);
-    playerB->init(700, 32, 30, 200);
-
     isRunning = true;
 }
 
@@ -68,6 +64,10 @@ void Game::handleEvent() {
 
 void Game::update() {
     ball->update();
+
+    playerA->checkCollisionWithBorder();
+    playerB->checkCollisionWithBorder();
+
     playerA->checkCollisionWithBall(playerA, ball);
     playerB->checkCollisionWithBall(playerB, ball);
 }
