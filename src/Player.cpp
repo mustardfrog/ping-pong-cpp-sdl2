@@ -5,7 +5,7 @@
 
 const float delta = 0.2;
 
-Player::Player(int x, int y, int w, int h){
+Player::Player(int x, int y, int w, int h) {
     player.x = x;
     player.y = y;
     player.w = w;
@@ -17,8 +17,10 @@ Player::Player(int x, int y, int w, int h){
 Player::~Player(){};
 
 void Player::checkCollisionWithBorder() {
-    if (player.x <= 0) player.y = 0;
-    if (player.h >= 600) player.y  = 400;
+    if (player.x <= 0)
+        player.y = 0;
+    if (player.h >= 600)
+        player.y = 400;
 }
 
 void Player::handleEvents(SDL_Event event, SDL_KeyCode a, SDL_KeyCode b) {
