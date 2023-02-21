@@ -7,7 +7,7 @@ Game::Game(){};
 
 Ball *ball = new Ball();
 Player *playerA = new Player(32, 32, 30, 200);
-Player *playerB = new Player(700, 32, 30, 200);
+Player *playerB = new Player(WIDTH - 100, 32, 30, 200);
 
 Game::~Game(){};
 
@@ -24,7 +24,7 @@ void Game::init() {
     }
 
     window = SDL_CreateWindow(
-        "title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600,
+        "title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT,
         SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
 
     if (window == NULL) {
@@ -58,8 +58,8 @@ void Game::handleEvent() {
     default:
         break;
     }
-    playerA->handleEvents(event, SDL_KeyCode::SDLK_k, SDL_KeyCode::SDLK_j);
-    playerB->handleEvents(event, SDL_KeyCode::SDLK_UP, SDL_KeyCode::SDLK_DOWN);
+    playerB->handleEvents(SDL_SCANCODE_DOWN, SDL_SCANCODE_UP );
+    playerA->handleEvents(SDL_SCANCODE_C, SDL_SCANCODE_V );
 }
 
 void Game::update() {

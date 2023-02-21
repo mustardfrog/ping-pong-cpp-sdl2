@@ -25,12 +25,13 @@ Ball::~Ball(){};
 void Ball::update() {
     ball.x += ballSpeed.x * delta;
     ball.y += ballSpeed.y * delta;
-    if (ball.x + 32 >= 800 || ball.x <= 0)
+
+    if (ball.x + 32 >= WIDTH || ball.x <= 0)
         ballSpeed.x *= -1;
     if (ball.y + 32 >= 600 || ball.y <= 0)
         ballSpeed.y *= -1;
 
-    if (ball.x + 32 >= 800) {
+    if (ball.x + 32 >= WIDTH) {
         ball.x = initialxPos;
         ball.y = initialyPos;
         aCount++;
@@ -43,7 +44,7 @@ void Ball::update() {
 }
 
 void Ball::render(SDL_Renderer *renderer) {
-    SDL_SetRenderDrawColor(renderer, 100, 100, 100, 10);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 10);
     SDL_RenderDrawRect(renderer, &ball);
 
     SDL_RenderFillRect(renderer, &ball);

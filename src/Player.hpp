@@ -17,7 +17,7 @@ class Player {
         void update();
 
         void render(SDL_Renderer *renderer);
-        void handleEvents(SDL_Event event,SDL_KeyCode a, SDL_KeyCode b);
+        void handleEvents(SDL_Scancode a, SDL_Scancode b);
 
         void checkCollisionWithBall(Player *player, Ball *ball);
         void checkCollisionWithBorder();

@@ -5,6 +5,9 @@
 #include <SDL2/SDL_keycode.h>
 #include <cstdio>
 
+#define WIDTH 900
+#define HEIGHT 600
+
 class Game {
   public:
     static SDL_Renderer *renderer;
